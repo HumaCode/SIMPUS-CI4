@@ -52,12 +52,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
 
-
-
                     </ul>
                     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                         <li class="nav-item float-right ml-auto">
-                            <a class="nav-link" href="<?= base_url('login') ?>">
+                            <a class="nav-link" href="<?= base_url('auth') ?>">
                                 <i class="fas fa-sign-in-alt"></i> &nbsp; Login
                             </a>
                         </li>
