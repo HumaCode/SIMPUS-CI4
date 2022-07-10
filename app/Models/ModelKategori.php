@@ -13,4 +13,9 @@ class ModelKategori extends Model
             ->get()
             ->getResultArray();
     }
+
+    public function tambah($data)
+    {
+        $this->db->table('tbl_kategori')->insert($data);
+    }
 }
