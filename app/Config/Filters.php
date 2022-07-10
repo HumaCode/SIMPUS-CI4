@@ -51,6 +51,7 @@ class Filters extends BaseConfig
             'filteruser' => [
                 'except' => [
                     'Admin', 'Admin/*',
+                    'Kategori', 'Kategori/*',
                     'Home', 'Home/*',
                     '/'
                 ]

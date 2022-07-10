@@ -7,7 +7,7 @@ class Admin extends BaseController
     public function index()
     {
         $data = [
-            "title" => "Admin",
+            "title" => "Dashboard",
             "page" => "v_admin"
         ];
 

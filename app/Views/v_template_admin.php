@@ -81,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         <!-- <li class="nav-header">Master Data</li> -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('admin') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -98,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link ">
+                                    <a href="<?= base_url('kategori') ?>" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kategori Buku</p>
                                     </a>
@@ -151,12 +151,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Starter Page</h1>
+                            <h1 class="m-0"><?= $title ?></h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Starter Page</li>
+                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li class="breadcrumb-item active"><?= $title ?></li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
