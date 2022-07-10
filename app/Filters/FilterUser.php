@@ -44,7 +44,7 @@ class FilterUser implements FilterInterface
      */
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        if (session()->get('level') == 0) {
+        if (session()->get('level') == "0") {
             return redirect()->to(base_url('admin'));
         }
     }

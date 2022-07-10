@@ -18,4 +18,18 @@ class ModelKategori extends Model
     {
         $this->db->table('tbl_kategori')->insert($data);
     }
+
+    public function hapus($id_kategori)
+    {
+        $this->db->table('tbl_kategori')
+            ->where('id_kategori', $id_kategori)
+            ->delete();
+    }
+
+    public function edit($id_kategori, $data)
+    {
+        $this->db->table('tbl_kategori')
+            ->where('id_kategori', $id_kategori)
+            ->update($data);
+    }
 }

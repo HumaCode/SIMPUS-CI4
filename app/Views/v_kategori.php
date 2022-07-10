@@ -40,8 +40,8 @@
                             <td class="text-center"><?= $i++;  ?>.</td>
                             <td><?= $data['nama_kategori'] ?></td>
                             <td class="text-center" width="200">
-                                <a href="" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalEdit<?= $data['id_kategori'] ?>"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalHapus<?= $data['id_kategori'] ?>"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -80,3 +80,60 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Modal edit-->
+<?php foreach ($kategori as $data) { ?>
+    <div class="modal fade" id="modalEdit<?= $data['id_kategori'] ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditLabel">Edit Data <?= $title ?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?= form_open(base_url('kategori/edit/' . $data['id_kategori'])) ?>
+
+                    <div class="form-group">
+                        <label for="kategori">Nama Kategori</label>
+                        <input type="text" name="kategori" class="form-control" id="kategori" value="<?= $data['nama_kategori'] ?>">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                </div>
+                <?= form_close() ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<!-- Modal hapus-->
+<?php foreach ($kategori as $data) { ?>
+    <div class="modal fade" id="modalHapus<?= $data['id_kategori'] ?>" tabindex="-1" role="dialog" aria-labelledby="modalHapusLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalHapusLabel">Hapus Data <?= $title ?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <p>Apakah yakin akan menghapus data ini..?</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Batal</button>
+                    <a href="<?= base_url('kategori/hapus/' . $data['id_kategori']) ?>" class="btn btn-primary btn-sm">Hapus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
