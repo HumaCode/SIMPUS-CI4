@@ -81,15 +81,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         <!-- <li class="nav-header">Master Data</li> -->
                         <li class="nav-item">
-                            <a href="<?= base_url('admin') ?>" class="nav-link">
+                            <a href="<?= base_url('admin') ?>" class="nav-link <?= ($menu == 'dashboard') ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                        <li class="nav-item <?= ($menu == 'masterdata') ? 'menu-open' : '' ?>">
+                            <a href="#" class="nav-link <?= ($menu == 'masterdata') ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Master Data
@@ -98,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('kategori') ?>" class="nav-link ">
+                                    <a href="<?= base_url('kategori') ?>" class="nav-link <?= ($submenu == 'kategori') ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kategori Buku</p>
                                     </a>
@@ -110,15 +110,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('rak') ?>" class="nav-link">
+                                    <a href="<?= base_url('rak') ?>" class="nav-link <?= ($submenu == 'rak') ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Rak Buku</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Buku</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -130,10 +124,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('user') ?>" class="nav-link  <?= ($menu == 'user') ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>
-                                    Simple Link
+                                    User
                                 </p>
                             </a>
                         </li>
@@ -209,6 +203,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url() ?>/AdminLTE3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?= base_url() ?>/AdminLTE3/dist/js/adminlte.min.js"></script>
+
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
 </body>
 
 </html>

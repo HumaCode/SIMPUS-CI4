@@ -54,6 +54,7 @@ class Filters extends BaseConfig
                     'Kategori', 'Kategori/*',
                     'Rak', 'Rak/*',
                     'Home', 'Home/*',
+                    'User', 'User/*',
                     '/'
                 ]
             ]

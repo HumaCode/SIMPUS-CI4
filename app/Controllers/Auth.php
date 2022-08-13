@@ -56,6 +56,7 @@ class Auth extends BaseController
 
             $cek_login = $this->ModelAuth->loginUser($email, $password);
             if ($cek_login) {
+                session()->set('id_user', $cek_login['id_user']);
                 session()->set('nama_user', $cek_login['nama_user']);
                 session()->set('email', $cek_login['email']);
                 session()->set('level', $cek_login['level']);
