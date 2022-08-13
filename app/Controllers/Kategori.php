@@ -17,7 +17,7 @@ class Kategori extends BaseController
     {
         $data = [
             "title"     => "Kategori",
-            "menu"      => "masterdata",
+            "menu"      => "masterbuku",
             "submenu"   => "kategori",
             "kategori"  => $this->ModelKategori->getAllData(),
             "page"      => "v_kategori"

@@ -15,8 +15,8 @@ class User extends BaseController
     {
         $data = [
             "title"     => "User",
-            "menu"      => "user",
-            "submenu"   => "",
+            "menu"      => "pengaturan",
+            "submenu"   => "user",
             "page"      => "v_user",
             "user"      => $this->ModelUser->getAllData(),
         ];

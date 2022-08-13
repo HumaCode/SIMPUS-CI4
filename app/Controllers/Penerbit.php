@@ -17,7 +17,7 @@ class Penerbit extends BaseController
     {
         $data = [
             "title"     => "Penerbit",
-            "menu"      => "masterdata",
+            "menu"      => "masterbuku",
             "submenu"   => "penerbit",
             "penerbit"  => $this->ModelPenerbit->getAllData(),
             "page"      => "v_penerbit"

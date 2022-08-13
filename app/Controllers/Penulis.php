@@ -17,7 +17,7 @@ class Penulis extends BaseController
     {
         $data = [
             "title"     => "Penulis",
-            "menu"      => "masterdata",
+            "menu"      => "masterbuku",
             "submenu"   => "penulis",
             "penulis"   => $this->ModelPenulis->getAllData(),
             "page"      => "v_penulis"

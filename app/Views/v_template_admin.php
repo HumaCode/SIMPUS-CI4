@@ -88,9 +88,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item <?= ($menu == 'masterdata') ? 'menu-open' : '' ?>">
-                            <a href="#" class="nav-link <?= ($menu == 'masterdata') ? 'active' : '' ?>">
-                                <i class="nav-icon fas fa-th"></i>
+
+                        <li class="nav-item <?= ($menu == 'masterbuku') ? 'menu-open' : '' ?>">
+                            <a href="#" class="nav-link <?= ($menu == 'masterbuku') ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Master Data
                                     <i class="right fas fa-angle-left"></i>
@@ -129,6 +130,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="nav-item <?= ($menu == 'masteranggota') ? 'menu-open' : '' ?>">
+                            <a href="#" class="nav-link <?= ($menu == 'masteranggota') ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Master Anggota
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('anggota') ?>" class="nav-link <?= ($submenu == 'anggota') ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Anggota</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('kelas') ?>" class="nav-link <?= ($submenu == 'kelas') ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kelas</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item <?= ($menu == 'pengaturan') ? 'menu-open' : '' ?>">
+                            <a href="#" class="nav-link <?= ($menu == 'pengaturan') ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-cogs"></i>
+                                <p>
+                                    Pengaturan
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('user') ?>" class="nav-link <?= ($submenu == 'user') ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>User</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Web</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Denda</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
                         <li class="nav-item">
                             <a href="<?= base_url('user') ?>" class="nav-link  <?= ($menu == 'user') ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-user"></i>

@@ -17,7 +17,7 @@ class Rak extends BaseController
     {
         $data = [
             "title"     => "Rak",
-            "menu"      => "masterdata",
+            "menu"      => "masterbuku",
             "submenu"   => "rak",
             "rak"       => $this->ModelRak->getAllData(),
             "page"      => "v_rak"
