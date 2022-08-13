@@ -55,6 +55,7 @@ class Filters extends BaseConfig
                     'Rak', 'Rak/*',
                     'Home', 'Home/*',
                     'User', 'User/*',
+                    'Penerbit', 'Penerbit/*',
                     '/'
                 ]
             ]
