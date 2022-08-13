@@ -121,6 +121,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>Penerbit</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('penulis') ?>" class="nav-link <?= ($submenu == 'penulis') ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Penulis</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
