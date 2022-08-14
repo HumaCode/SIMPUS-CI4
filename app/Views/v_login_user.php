@@ -1,7 +1,7 @@
 <div class="login-box">
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="<?= base_url() ?>" class="h1"><?= $title ?></a>
+            <a href="<?= base_url('auth') ?>" class="h2"><?= $title ?></a>
         </div>
         <div class="card-body">
             <p class="login-box-msg">Silahkan login terlebih dahulu</p>

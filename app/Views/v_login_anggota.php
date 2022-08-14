@@ -1,7 +1,7 @@
 <div class="login-box">
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="<?= base_url() ?>" class="h1"><?= $title ?></a>
+            <a href="<?= base_url('auth') ?>" class="h2"><?= $title ?></a>
         </div>
         <div class="card-body">
             <p class="login-box-msg">Silahkan login terlebih dahulu</p>
@@ -29,11 +29,20 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-6">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </div>
                     <!-- /.col -->
+
                 </div>
+                <!-- <div class="text-center mt-2 mb-2">--Atau--</div> -->
             </form>
+
+            <div class="social-auth-links text-center mb-3">
+                <p>- Atau -</p>
+                <a href="<?= base_url('auth/register') ?>" class="btn btn-block btn-secondary">
+                    <i class="fas fa-user-plus mr-2"></i> Daftar Anggota
+                </a>
+            </div>
 
         </div>
         <!-- /.card-body -->

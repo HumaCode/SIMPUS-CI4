@@ -3,12 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\ModelAuth;
+use App\Models\ModelKelas;
 
 class Auth extends BaseController
 {
     public function __construct()
     {
         $this->ModelAuth = new ModelAuth();
+        $this->ModelKelas = new ModelKelas();
     }
 
 
@@ -85,7 +87,6 @@ class Auth extends BaseController
     }
 
     public function logout()
-
     {
         session()->remove('nama_user');
         session()->remove('email');
@@ -94,5 +95,16 @@ class Auth extends BaseController
         session()->setFlashdata('pesan', 'Berhasil logout.!!');
 
         return redirect()->to(base_url('auth'));
+    }
+
+    public function register()
+    {
+        $data = [
+            "title" => "Register Anggota",
+            "page"  => "v_register_anggota",
+            "kelas" => $this->ModelKelas->getAllData(),
+        ];
+
+        return view('v_template_login', $data);
     }
 }

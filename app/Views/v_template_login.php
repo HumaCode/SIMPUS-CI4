@@ -19,6 +19,10 @@
 <body class="hold-transition login-page">
 
 
+    <div class="login-logo">
+        <a href="<?= base_url() ?>" class="h1">Sistem Informasi Perpustakaan</a>
+    </div>
+
     <?php
 
     if ($page) {

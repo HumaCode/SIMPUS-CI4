@@ -1,7 +1,3 @@
-<div class="card-header text-center">
-    <a href="<?= base_url() ?>" class="h1">Sistem Informasi Perpustakaan</a>
-</div>
-
 <div class="row">
     <div class="login-box">
         <div class="col-lg-12 col-6">
