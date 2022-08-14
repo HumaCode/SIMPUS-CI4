@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\FilterAnggota;
 use App\Filters\FilterUser;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
@@ -25,6 +26,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'filteruser'    => FilterUser::class,
+        'filteranggota'    => FilterAnggota::class,
     ];
 
     /**
@@ -41,7 +43,14 @@ class Filters extends BaseConfig
                     'Home', 'Home/*',
                     '/'
                 ]
-            ]
+            ],
+            'filteranggota' => [
+                'except' => [
+                    'Auth', 'Auth/*',
+                    'Home', 'Home/*',
+                    '/'
+                ]
+            ],
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
@@ -60,7 +69,14 @@ class Filters extends BaseConfig
                     'Kelas', 'Kelas/*',
                     '/'
                 ]
-            ]
+            ],
+            'filteranggota' => [
+                'except' => [
+                    'DashboardAnggota', 'DashboardAnggota/*',
+                    'Home', 'Home/*',
+                    '/'
+                ]
+            ],
             // 'honeypot',
             // 'secureheaders',
         ],

@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class FilterUser implements FilterInterface
+class FilterAnggota implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -44,8 +44,8 @@ class FilterUser implements FilterInterface
      */
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        if (session()->get('level') == "0") {
-            return redirect()->to(base_url('admin'));
+        if (session()->get('level') == 'Anggota') {
+            return redirect()->to(base_url('dashboardAnggota'));
         }
     }
 }

@@ -97,6 +97,18 @@ class Auth extends BaseController
         return redirect()->to(base_url('auth'));
     }
 
+    public function logoutAnggota()
+    {
+        session()->remove('id_anggota');
+        session()->remove('nis');
+        session()->remove('nama_siswa');
+        session()->remove('level');
+
+        session()->setFlashdata('pesan', 'Berhasil logout.!!');
+
+        return redirect()->to(base_url('auth/loginAnggota'));
+    }
+
     public function register()
     {
         $data = [
@@ -183,6 +195,49 @@ class Auth extends BaseController
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
 
             return redirect()->to(base_url('auth/register'))->withInput('validation',  \Config\Services::validation());
+        }
+    }
+
+
+    public function cekLoginAnggota()
+    {
+        if ($this->validate([
+            'nis' => [
+                'label' => 'NIS',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.!!',
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.!!',
+                ]
+            ],
+        ])) {
+            $nis        = $this->request->getPost('nis');
+            $password   = $this->request->getPost('password');
+
+            $cek_login = $this->ModelAuth->loginAnggota($nis, $password);
+            if ($cek_login) {
+                session()->set('id_anggota', $cek_login['id_anggota']);
+                session()->set('nis', $cek_login['nis']);
+                session()->set('nama_siswa', $cek_login['nama_siswa']);
+                // session()->set('foto', $cek_login['foto']);
+                session()->set('level', 'Anggota');
+
+                return redirect()->to(base_url('dashboardAnggota'));
+            } else {
+                session()->setFlashdata('pesan', 'NIS atau password salah.!!');
+
+                return redirect()->to(base_url('auth/loginAnggota'));
+            }
+        } else {
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+
+            return redirect()->to(base_url('auth/loginAnggota'));
         }
     }
 }
