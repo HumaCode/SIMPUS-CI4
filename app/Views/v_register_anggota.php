@@ -6,10 +6,33 @@
         <div class="card-body">
             <p class="login-box-msg">Silahkan register terlebih dahulu</p>
 
+            <!-- validasi error -->
+            <?php
+            $errors = session()->getFlashdata('errors');
 
-            <?= form_open() ?>
+            if (!empty($errors)) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <?php foreach ($errors as $key => $error) { ?>
+                            <li><?= esc($error) ?></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
+
+            <?php if (session()->getFlashdata('pesan')) { ?>
+
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-check"></i> Berhasil!</h5>
+                    <?= session()->getFlashdata('pesan') ?>
+                </div>
+
+            <?php } ?>
+
+            <?= form_open('auth/prosesRegister') ?>
             <div class="input-group mb-3">
-                <input type="number" min="0" name="nis" class="form-control" placeholder="NIS">
+                <input type="number" min="0" name="nis" class="form-control" placeholder="NIS" value="<?= old('nis') ?>">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-check-circle"></span>
@@ -17,8 +40,8 @@
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input type="text" name="nama" class="form-control" placeholder="Nama Siswa">
-                <div class="input-group-append">
+                <input type="text" name="nama" class="form-control " placeholder="Nama Siswa" value="<?= old('nama') ?>">
+                <div class=" input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-check-circle"></span>
                     </div>
@@ -52,7 +75,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="number" min="0" name="no_hp" class="form-control" placeholder="No. Handphone">
+                <input type="number" min="0" name="no_hp" class="form-control" placeholder="No. Handphone" value="<?= old('no_hp') ?>">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-check-circle"></span>

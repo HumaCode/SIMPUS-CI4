@@ -19,7 +19,7 @@
 <body class="hold-transition login-page">
 
 
-    <div class="login-logo">
+    <div class="login-logo mt-5">
         <a href="<?= base_url() ?>" class="h1">Sistem Informasi Perpustakaan</a>
     </div>
 

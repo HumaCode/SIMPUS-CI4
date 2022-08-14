@@ -4,6 +4,17 @@
             <a href="<?= base_url('auth') ?>" class="h2"><?= $title ?></a>
         </div>
         <div class="card-body">
+
+            <?php if (session()->getFlashdata('pesan')) { ?>
+
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-check"></i> Berhasil!</h5>
+                    <?= session()->getFlashdata('pesan') ?>
+                </div>
+
+            <?php } ?>
+
             <p class="login-box-msg">Silahkan login terlebih dahulu</p>
 
             <form action="<?= base_url() ?>/AdminLTE3/index3.html" method="post">

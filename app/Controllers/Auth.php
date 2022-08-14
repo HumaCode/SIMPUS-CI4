@@ -107,4 +107,82 @@ class Auth extends BaseController
 
         return view('v_template_login', $data);
     }
+
+    public function prosesRegister()
+    {
+        if ($this->validate([
+            'nis' => [
+                'label' => 'NIS',
+                'rules' => 'required|is_unique[tbl_anggota.nis]',
+                'errors' => [
+                    'required'  => '{field} tidak boleh kosong.!!',
+                    'is_unique' => '{field} sudah terdaftar.!!',
+                ]
+            ],
+            'nama' => [
+                'label' => 'Nama Siswa',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.!!',
+                ]
+            ],
+            'jk' => [
+                'label' => 'Jenis Kelamin',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus dipilih.!!',
+                ]
+            ],
+            'kelas' => [
+                'label' => 'Kelas',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus dipilih.!!',
+                ]
+            ],
+            'no_hp' => [
+                'label' => 'No. Handphone',
+                'rules' => 'required|is_unique[tbl_anggota.no_hp]',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.!!',
+                    'is_unique' => '{field} sudah terdaftar.!!',
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.!!',
+                ]
+            ],
+            'password2' => [
+                'label' => 'Repeat Password',
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.!!',
+                    'matches' => '{field} tidak sama.!!',
+                ]
+            ],
+
+        ])) {
+
+            $data = [
+                'nis'           => htmlspecialchars($this->request->getPost('nis')),
+                'nama_siswa'    => htmlspecialchars($this->request->getPost('nama')),
+                'jenis_kelamin' => htmlspecialchars($this->request->getPost('jk')),
+                'no_hp'         => htmlspecialchars($this->request->getPost('no_hp')),
+                'password'      => htmlspecialchars($this->request->getPost('password')),
+                'id_kelas'      => htmlspecialchars($this->request->getPost('kelas')),
+            ];
+
+            $this->ModelAuth->register($data);
+
+            session()->setFlashdata('pesan', 'Akun berhasil dibuat');
+            return redirect()->to(base_url('auth/loginAnggota'));
+        } else {
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+
+            return redirect()->to(base_url('auth/register'))->withInput('validation',  \Config\Services::validation());
+        }
+    }
 }
