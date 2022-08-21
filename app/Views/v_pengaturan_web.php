@@ -5,39 +5,54 @@
         </div>
         <div class="card-body">
 
-            <?= form_open_multipart() ?>
+            <?php if (session()->getFlashdata('pesan')) { ?>
 
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-check"></i> Berhasil!</h5>
+                    <?= session()->getFlashdata('pesan') ?>
+                </div>
+
+            <?php } ?>
+
+            <?= form_open_multipart(base_url('pengaturan/updateWeb')) ?>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="sekolah">Nama Sekolah</label>
-                        <input type="text" name="sekolah" id="sekolah" class="form-control" value="<?= $web['nama_sekolah'] ?>">
+                        <input type="text" name="sekolah" id="sekolah" class="form-control" value="<?= $web['nama_sekolah'] ?>" required>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="tlp">Telepon</label>
-                        <input type="number" min="0" name="tlp" id="tlp" class="form-control" value="<?= $web['no_tlp'] ?>">
+                        <input type="number" min="0" name="tlp" id="tlp" class="form-control" value="<?= $web['no_tlp'] ?>" required>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <textarea name="alamat" id="alamat" rows="3" class="form-control"><?= $web['alamat'] ?></textarea>
+                <textarea name="alamat" id="alamat" rows="3" class="form-control" required><?= $web['alamat'] ?></textarea>
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="form-group">
                         <label for="kec">Kecamatan</label>
-                        <input type="text" name="kec" id="kec" class="form-control" value="<?= $web['kecamatan'] ?>">
+                        <input type="text" name="kec" id="kec" class="form-control" value="<?= $web['kecamatan'] ?>" required>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="form-group">
                         <label for="kab">Kabupaten/Kota</label>
-                        <input type="text" name="kab" id="kab" class="form-control" value="<?= $web['kabupaten'] ?>">
+                        <input type="text" name="kab" id="kab" class="form-control" value="<?= $web['kabupaten'] ?>" required>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="kd_pos">Kode Pos</label>
+                        <input type="number" min="0" name="kd_pos" id="kd_pos" class="form-control" value="<?= $web['kd_pos'] ?>" required>
                     </div>
                 </div>
             </div>

@@ -13,4 +13,11 @@ class ModelPengaturan extends Model
             ->get()
             ->getRowArray();
     }
+
+    public function updateWeb($data)
+    {
+        $this->db->table('tbl_web')
+            ->where('id_web', 1)
+            ->update($data);
+    }
 }
