@@ -24,7 +24,7 @@
         </div>
 
         <div class="card-body">
-            <table class="table table-bordered projects">
+            <table id="example2" class="table table-bordered table-striped projects">
                 <thead class="text-center table-dark">
                     <tr>
                         <th width="30">No</th>

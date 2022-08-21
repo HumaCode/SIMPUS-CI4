@@ -16,6 +16,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE3/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE3/dist/css/adminlte.min.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -271,11 +279,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script src="<?= base_url() ?>/AdminLTE3/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/jszip/jszip.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE3/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
     <script>
         $(function() {
             bsCustomFileInput.init();
         });
+
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+        });
     </script>
+
 </body>
 
 </html>
