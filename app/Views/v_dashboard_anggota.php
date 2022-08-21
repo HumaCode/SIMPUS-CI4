@@ -1,10 +1,26 @@
+<div class="col-md-12">
+    <?php if ($profil['verifikasi'] == 0) { ?>
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-ban"></i> Peringatan!</h5>
+            Akun anda belum diverifikasi oleh petugas perpustakaan, silahkan hubungi petugas perpustakaan.
+        </div>
+    <?php } else { ?>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-check"></i> Selamat!</h5>
+            Akun anda sudah diverifikasi.
+        </div>
+    <?php } ?>
+</div>
+
 <div class="col-sm-3">
 
     <!-- Profile Image -->
     <div class="card card-primary card-outline">
         <div class="card-body box-profile">
             <div class="text-center">
-                <img class=" img-fluid img-thumbnail" src="<?= ($profil == '') ? base_url('img/user/' . $profil['foto']) : base_url('logo/noimages.png') ?>" alt="User profile picture" width="300">
+                <img class=" img-fluid img-thumbnail" src="<?= ($profil == '') ? base_url('logo/noimages.png') : base_url('img/user/' . $profil['foto']) ?>" alt="User" width="300">
             </div>
 
         </div>

@@ -185,6 +185,7 @@ class Auth extends BaseController
                 'no_hp'         => htmlspecialchars($this->request->getPost('no_hp')),
                 'password'      => htmlspecialchars($this->request->getPost('password')),
                 'id_kelas'      => htmlspecialchars($this->request->getPost('kelas')),
+                'verifikasi'    => '0',
             ];
 
             $this->ModelAuth->register($data);
@@ -225,6 +226,8 @@ class Auth extends BaseController
                 session()->set('id_anggota', $cek_login['id_anggota']);
                 session()->set('nis', $cek_login['nis']);
                 session()->set('nama_siswa', $cek_login['nama_siswa']);
+                session()->set('foto', $cek_login['foto']);
+                session()->set('verifikasi', $cek_login['verifikasi']);
                 // session()->set('foto', $cek_login['foto']);
                 session()->set('level', 'Anggota');
 
