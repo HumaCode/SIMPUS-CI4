@@ -67,6 +67,7 @@ class Filters extends BaseConfig
                     'Penerbit', 'Penerbit/*',
                     'Penulis', 'Penulis/*',
                     'Kelas', 'Kelas/*',
+                    'Pengaturan', 'Pengaturan/*',
                     '/'
                 ]
             ],
