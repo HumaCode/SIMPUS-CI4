@@ -14,4 +14,20 @@ class ModelAnggota extends Model
             ->get()
             ->getRowArray();
     }
+
+    public function getAllData()
+    {
+        return $this->db->table('tbl_anggota')
+            ->join('tbl_kelas', 'tbl_kelas.id_kelas = tbl_anggota.id_kelas', 'left')
+            ->orderBy('id_anggota', 'DESC')
+            ->get()
+            ->getResultArray();
+    }
+
+    public function edit($id_anggota, $data)
+    {
+        $this->db->table('tbl_anggota')
+            ->where('id_anggota', $id_anggota)
+            ->update($data);
+    }
 }
