@@ -39,9 +39,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
 
-
-
-
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="<?= base_url('auth/logoutAnggota') ?>">
                         <i class="fas fa-sign-out-alt"></i> &nbsp; Logout
@@ -81,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         <!-- <li class="nav-header">Master Data</li> -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('dashboardAnggota') ?>" class="nav-link <?= ($menu == 'profil') ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
