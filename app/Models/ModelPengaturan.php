@@ -14,6 +14,14 @@ class ModelPengaturan extends Model
             ->getRowArray();
     }
 
+    public function slider()
+    {
+        return $this->db->table('tbl_slider')
+            ->orderBy('id_slider', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
+
     public function updateWeb($data)
     {
         $this->db->table('tbl_web')
