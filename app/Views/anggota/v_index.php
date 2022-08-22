@@ -16,9 +16,9 @@
             <h3 class="card-title">Data <?= $title ?></h3>
 
             <div class="card-tools">
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                <a href="<?= base_url('anggota/add') ?>" type="button" class="btn btn-primary btn-sm">
                     <i class="fas fa-plus"></i> &nbsp; Tambah
-                </button>
+                </a>
             </div>
 
         </div>
@@ -62,7 +62,7 @@
                             <td>
                                 <ul class="list-inline text-center">
                                     <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar" src="<?= ($data['foto'] == null) ? base_url('/AdminLTE3/dist/img/avatar.png') : base_url('/img/user/' . $data['foto'])  ?>">
+                                        <img alt="Avatar" class="table-avatar" src="<?= ($data['foto'] == null) ? base_url('/logo/noimages.png') : base_url('/img/user/' . $data['foto'])  ?>">
                                     </li>
                                 </ul>
                             </td>

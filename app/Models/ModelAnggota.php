@@ -24,6 +24,11 @@ class ModelAnggota extends Model
             ->getResultArray();
     }
 
+    public function tambah($data)
+    {
+        $this->db->table('tbl_anggota')->insert($data);
+    }
+
     public function edit($id_anggota, $data)
     {
         $this->db->table('tbl_anggota')
