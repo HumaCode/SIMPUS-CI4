@@ -66,9 +66,9 @@
                                     </li>
                                 </ul>
                             </td>
-                            <td class="text-center" width="200">
-                                <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalEdit<?= $data['id_anggota'] ?>"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalHapus<?= $data['id_anggota'] ?>"><i class="fas fa-trash"></i></a>
+                            <td class="text-center" width="100">
+                                <a href="<?= base_url('anggota/edit/' . $data['id_anggota']) ?>" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="<?= base_url('anggota/delete/' . $data['id_anggota']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
