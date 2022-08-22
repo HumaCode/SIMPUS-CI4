@@ -19,14 +19,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition layout-top-nav">
+
+    <?php
+    // menghubungkan ke database
+    $db = \Config\Database::connect();
+
+    $web = $db->table('tbl_web')
+        ->where('id_web', 1)
+        ->get()
+        ->getRowArray();
+    ?>
+
+
     <div class="wrapper">
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="<?= base_url() ?>/AdminLTE3/index3.html" class="navbar-brand">
-                    <img src="<?= base_url() ?>/AdminLTE3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">Perpustakaan Example</span>
+                    <img src="<?= base_url('logo/' . $web['logo']) ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight-light"><strong>Perpustakaan</strong></span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +52,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="index3.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
+                            <a href="#" class="nav-link">Buku</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">E-Book</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Penerbit</a>
@@ -50,6 +65,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li><a href="#" class="dropdown-item">Some other action</a></li>
 
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Tentang Kami</a>
                         </li>
 
                     </ul>
@@ -72,13 +90,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0"> Top Navigation <small>Example 3.0</small></h1>
+                            <h1 class="m-0"> <strong><?= $web['nama_sekolah'] ?></strong></h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                                <li class="breadcrumb-item active">Top Navigation</li>
+                                <li class="breadcrumb-item"><a href="#">Perpustakaan</a></li>
+                                <li class="breadcrumb-item"><?= $title ?></li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
