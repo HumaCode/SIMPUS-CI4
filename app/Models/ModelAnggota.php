@@ -35,4 +35,11 @@ class ModelAnggota extends Model
             ->where('id_anggota', $id_anggota)
             ->update($data);
     }
+
+    public function hapus($id_anggota)
+    {
+        $this->db->table('tbl_anggota')
+            ->where('id_anggota', $id_anggota)
+            ->delete();
+    }
 }

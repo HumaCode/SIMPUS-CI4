@@ -68,7 +68,7 @@
                             </td>
                             <td class="text-center" width="100">
                                 <a href="<?= base_url('anggota/edit/' . $data['id_anggota']) ?>" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="<?= base_url('anggota/delete/' . $data['id_anggota']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalHapus<?= $data['id_anggota'] ?>"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -78,3 +78,28 @@
         </div>
     </div>
 </div>
+
+<!-- Modal hapus-->
+<?php foreach ($anggota as $data) { ?>
+    <div class="modal fade" id="modalHapus<?= $data['id_anggota'] ?>" tabindex="-1" role="dialog" aria-labelledby="modalHapusLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalHapusLabel">Hapus Data Anggota</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <p>Apakah yakin akan menghapus data ini..?</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Batal</button>
+                    <a href="<?= base_url('anggota/hapus/' . $data['id_anggota']) ?>" class="btn btn-primary btn-sm">Hapus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>

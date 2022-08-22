@@ -274,4 +274,20 @@ class Anggota extends BaseController
             return redirect()->to(base_url('anggota/edit'))->withInput('validation',  \Config\Services::validation());
         }
     }
+
+    public function hapus($id_anggota)
+    {
+        $anggota = $this->ModelAnggota->profileAnggota($id_anggota);
+
+        // unlink
+        $fotolama = $anggota['foto'];
+        if ($fotolama <> '') {
+            unlink('img/user/' . $fotolama);
+        }
+
+        $this->ModelAnggota->hapus($id_anggota);
+
+        session()->setFlashdata('pesan', 'Berhasil dihapus');
+        return redirect()->to(base_url('anggota'));
+    }
 }
