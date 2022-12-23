@@ -22,6 +22,23 @@ class ModelPengaturan extends Model
             ->getResultArray();
     }
 
+    public function sliderById($id_slider)
+    {
+        return $this->db->table('tbl_slider')
+            ->where('id_slider', $id_slider)
+            ->get()
+            ->getRowArray();
+    }
+
+
+    public function editSlider1($id_slider, $data)
+    {
+        $this->db->table('tbl_slider')
+            ->where('id_slider', $id_slider)
+            ->update($data);
+    }
+
+
     public function updateWeb($data)
     {
         $this->db->table('tbl_web')
